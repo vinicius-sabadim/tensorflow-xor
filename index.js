@@ -33,8 +33,11 @@ model.compile({
 })
 
 // Train model
-const train = () => {
-  return model.fit(train_xs, train_ys)
+const train = async () => {
+  for (i = 0; i < 200; i++) {
+    const response = await model.fit(train_xs, train_ys)
+    console.log(response.history.loss[0])
+  }
 }
 
 // Predict
