@@ -26,7 +26,8 @@ model.add(hidden)
 model.add(outputs)
 
 // Compiling model
-const optimizer = tf.train.sgd(0.1)
+const optimizer = tf.train.adam(0.1)
+
 model.compile({
   loss: 'meanSquaredError',
   optimizer
@@ -34,8 +35,11 @@ model.compile({
 
 // Train model
 const train = async () => {
-  for (i = 0; i < 200; i++) {
-    const response = await model.fit(train_xs, train_ys)
+  for (i = 0; i < 10; i++) {
+    const response = await model.fit(train_xs, train_ys, {
+      shuffle: true,
+      epochs: 100
+    })
     console.log(response.history.loss[0])
   }
 }
