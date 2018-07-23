@@ -22,7 +22,7 @@ const hidden = tf.layers.dense({
 
 const outputs = tf.layers.dense({
   units: 1,
-  activation: 'sigmoid'
+  activation: 'elu'
 })
 
 model.add(hidden)
