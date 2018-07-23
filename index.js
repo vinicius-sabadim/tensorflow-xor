@@ -1,3 +1,6 @@
+require('@tensorflow/tfjs-node')
+const tf = require('@tensorflow/tfjs')
+
 // Data
 const train_xs = tf.tensor2d([
   [0, 0], [1, 0], [0, 1], [1, 1]  
